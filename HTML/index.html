@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мой личный блог</title>
+
+</head>
+<body>
+  <style>
+    body {
+      background-color: brown;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .blog-post {
+    margin-bottom: 20px;
+  }
+  
+  img {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  input, textarea, button {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  </style>
+  <div id="app">
+    <header>
+      <h1>Мой личный блог</h1>
+    </header>
+    <main>
+      <div class="blog-post" v-for="(post, index) in posts" :key="index">
+        <img :src="post.image" :alt="post.title">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+      </div>
+      <form @submit.prevent="addPost">
+        <input type="text" v-model="newPost.title" placeholder="Заголовок">
+        <textarea v-model="newPost.content" placeholder="Текст поста"></textarea>
+        <input type="url" v-model="newPost.image" placeholder="URL изображения">
+        <button type="submit">Добавить пост</button>
+      </form>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="..\JS\app.js"></script>
+</body>
+
+<<footer style="background-color: #333; color: #fff; padding: 10px; text-align: center;">
+  <p>Мой личный блог - создан с помощью Vue.js</p>
+</footer>
+</html>
